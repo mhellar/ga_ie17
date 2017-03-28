@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Interactive Environments</title>
+    <meta name="description" content="Interactive Environments 2">
+    <meta name="author" content="Mark Hellar">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section data-background="img/nodemcu.png">
+            </section>
+            <section>
+                <p>The ESP8266</p>
+            </section>
+
+            <section>
+                <a href="http://bit.ly/2f1U0SU">Code</a>
+            </section>
+
+            <section>
+                <p>The ESP8266 is a low-cost Wi-Fi chip with full TCP/IP stack and MCU (Micro Controller Unit) capability produced by Shanghai-based Chinese manufacturer, Espressif Systems.</p>
+            </section>
+
+            <section>
+                <p>The NodeMCU is a mini Arduino with Wifi, that is $10.00!</p>
+                <br>
+            </section>
+            <section>
+                <p>
+                    <a="https://github.com/esp8266/Arduino">ESP8266 core for Arduino</a>
+                </p>
+            </section>
+            <section>
+                <p>
+                    Getting Set up:
+                    <br> - First install the USB driver <a href="https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx">SiLabs serial driver</a>
+                </p>
+            </section>
+            <section>
+                <p>
+                    Getting Set up:
+                    <br> - Next go to the Arduino Preferences
+                    <br><img src="img/ard-pref.png" height="400">
+                    <br> Enter <b>http://arduino.esp8266.com/stable/package_esp8266com_index.json</b> into Additional Boards Manager URLs
+                </p>
+            </section>
+            <section>
+                <p>
+                    Getting Set up:
+                    <br> - Next, use the Board manager to install the ESP8266 package.
+                    <br><img src="img/brdmgr.png" height="400">
+                </p>
+            </section>
+            <section>
+                <img src="img/nodemcu_pins.png">
+            </section>
+            <section>
+                <p>Connect an led</p>
+                <br>
+                <img src="img/mqled.png">
+            </section>
+            <section>
+                <p>Upload Blink</p>
+                <br>
+            </section>
+            <section>
+                <p>Upload WiFiWebServer</p>
+                <br>
+            </section>
+            <section>
+                <p>Upload ESPwebpage</p>
+                <br>
+            </section>
+            <section>
+                <p>Hook Up A Servo</p>
+                <br>
+                <img src="img/servoesp.png">
+            </section>
+            <section>
+                <p>Upload ESPwebpageServo</p>
+                <br>
+            </section>
+            <section>
+                <br>
+                <img src="img/mqttorg.png">
+                <br>
+            </section>
+
+            <section>
+                <br>
+                <img src="img/mqtt-explanation.png">
+                <br>
+            </section>
+            <section>
+                <p>I've set up a public MQTT server we will use in class</p><br>
+                <p>On Thurs I will show you how to set up your own on Amazon</p>
+            </section>
+            <section>
+                <p>MQTT.fx is a client that we can test the server with, this will demontrate the concept</p><br>
+                <p>http://www.mqttfx.org/</p>
+            </section>
+
+            <section>
+                <p>Set Up MQTT.FX to connect to the Public Server</p>
+                <img src="img/mqttfxsetup.png"><br>
+                <p>Click on the gear next to the connect button</p>
+            </section>
+            <section>
+                <p>Set Up MQTT.FX to connect to the Public Server</p>
+                <img src="img/mqttfxsetup2.png" height="400"><br>
+                <p>Make a new conection with the following settings, use your name as the client name, hit 'ok'</p>
+            </section>
+            <section>
+                <p>MQTT topics are like chat rooms, here I am publishing the message 'hi' to the topic "/test"</p>
+                <img src="img/mqtt_pub.png" height="400"><br>
+            </section>
+            <section>
+                <p>And here I am subscribing to the mesages on that topic</p>
+                <img src="img/mqtt_sub.png" height="400"><br>
+            </section>
+            <section>
+                <p>We can connect our ESP8266 to the MQTT server</p>
+                <br>
+                <p>Connect some neopixels</p>
+                <br>
+                <img src="img/espixel.png">
+                <br>
+            </section>
+            <section>
+                <p>Install Arduino MQTT Library by Joel Gaewiller</p><br>
+                <p>Upload espmqtt_neopixel</p><br>
+            </section>
+
+            <section>
+                <p>A note on MQTT topics</p><br>
+                <a href="https://mosquitto.org/man/mqtt-7.html">https://mosquitto.org/man/mqtt-7.html</a>
+            </section>
+
+            <section>
+                <p>cd ws_mqtt_express, run node index.js</a>
+                </p>
+            </section>
+
+            <section>
+                <p>cd speak_mqtt, run node index.js</a>
+                </p>
+            </section>
+
+            <section>
+                <p><a href="http://www.blynk.cc/">Blynk</a></p>
+            </section>
+
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                condition: function() {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "my_awesome_control_unit_v62321",
+  "version": "1.0.0",
+  "description": "my thing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark Hellar",
+  "license": "ISC",
+  "dependencies": {
+    "node-osc": "^1.1.0"
+  }
+}
