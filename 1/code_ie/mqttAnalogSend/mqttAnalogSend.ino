@@ -10,8 +10,8 @@
 #include <ESP8266WiFi.h>
 #include <MQTTClient.h>
 
-const char *ssid = "extreme";
-const char *pass = "extreme!!!";
+const char *ssid = "Wired2";
+const char *pass = "12!trout";
 
 char msgBuffer[20];
 const int AnalogIn = A0;
@@ -29,8 +29,7 @@ void connect(); // <- predefine connect() for setup()
 void setup() {
   Serial.begin(9600);
   WiFi.begin(ssid, pass);
-  client.begin("35.167.192.176", net);
-
+  client.begin("35.162.196.241", net);
   connect();
 }
 
@@ -67,7 +66,7 @@ void loop() {
   // publish a message roughly every second.
   if(millis() - lastMillis > 5) {
     lastMillis = millis();
-    client.publish("/myval", dtostrf(inval, 6, 2, msgBuffer));
+    client.publish("/hello", dtostrf(inval, 6, 2, msgBuffer));
   }
 }
 
