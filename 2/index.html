@@ -31,6 +31,15 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
             <section>
+                <p>Connect an led</p>
+                <br>
+                <img src="img/mqled.png">
+            </section>
+            <section>
+                <p>Upload WiFiWebServer</p>
+                <br>
+            </section>
+            <section>
                 <img src="img/aws.png"><br>
             </section>
             <section>
@@ -73,7 +82,7 @@
             </section>
             <section>
                 <p>Windows users connect this way</p><br>
-                <a href=" http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html"> http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html</a>
+                <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html</a>
             </section>
             <section>
                 <img src="img/login.png"><br>
@@ -181,10 +190,36 @@
                 <p>Connect a potentiometer to the nodemcu</p><br>
                 <img src="img/nodepot.png"><br>
             </section>
+            <section>
+                <p>Open mqttAnalogSend in the Arduino IDE, and edit line 32 to match your server</p><br>
+                <p>Upload and check your page</p><br>
+            </section>
 
             <section>
-                <p>Install Arduino MQTT Library by Joel Gaewiller</p><br>
+                <p>MQTT.JS</p><br>
+                <a href="https://www.npmjs.com/package/mqtt">https://www.npmjs.com/package/mqtt</a>
+            </section>
+            <section>
+                <p>npm install mqtt -g</p><br>
+                <p>Then, on one terminal</p><br>
+                <p>mqtt sub -t '/hello' -h 'yourserver' -v</p><br>
+                <p>On another terminal</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m 'from MQTT.js'</p><br>
+            </section>
+            <section>
+                <p>We can connect our ESP8266 to the MQTT server</p>
+                <br>
+                <p>Connect some neopixels</p>
+                <br>
+                <img src="img/espixel.png">
+                <br>
+            </section>
+            <section>
+                <p>Open espmqtt_neopixel2 in the Arduino IDE, and edit line 43 to match your server</p><br>
                 <p>Upload espmqtt_neopixel</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m '1'</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m '2'</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m '3'</p><br>
             </section>
 
             <section>
