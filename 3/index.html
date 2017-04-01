@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Interactive Environments</title>
+    <meta name="description" content="Interactive Environments 2">
+    <meta name="author" content="Mark Hellar">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <p>Let us get to a known good working state</p><br>
+                <p>1. Log in to your AWS console</p><br>
+                <p>2. CD into the folder for your AWS key we created on Thurs</p><br>
+                <p>3. SSH into your server, ssh -i "YOURKEY.pem" YOURSERVER Windows Users use PuTTY</p><br>
+                <p>*HINT* Mac users can add the key to their Keychain by typing ssh-add -K YOURKEY.pem </p><br>
+            </section>
+
+            <section>
+                <p>Let's test our MQTT server</p><br>
+                <p>sudo npm install mqtt -g</p><br>
+                <p>Then, on one terminal</p><br>
+                <p>mqtt sub -t '/hello' -h 'yourserver' -v</p><br>
+                <p>On another terminal</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m 'from MQTT.js'</p><br>
+            </section>
+
+            <section>
+                <p>MQTT.JS</p><br>
+                <a href="https://www.npmjs.com/package/mqtt">https://www.npmjs.com/package/mqtt</a>
+            </section>
+
+            <section>
+                <p>In the SSH terminal connected to your server</p><br>
+                <p>cd</p><br>
+                <p>cd mqtt_ws</p><br>
+                <p>node index.jd</p><br>
+                <p>go to YOURSERVER:3000 in the browser</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m 'from MQTT.js'</p><br>
+            </section>
+            <section>
+                <p>Currently we need to login and manuall start our node app every time, let's fix that</p><br>
+                <p>In the SSH terminal connected to your server</p><br>
+                <p>sudo npm install forever -g</p><br>
+                <p>forever start index.js</p><br>
+            </section>
+
+            <section>
+                <p>We can enable websockets on the Mosqitto Server, Hoorah!</p><br>
+                <a href="http://blog.ithasu.org/2016/05/enabling-and-using-websockets-on-mosquitto/">http://blog.ithasu.org/2016/05/enabling-and-using-websockets-on-mosquitto/</a>
+                <p>In the SSH terminal connected to your server</p><br>
+                <p>wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key</p><br>
+                <p>sudo apt-key add mosquitto-repo.gpg.key</p><br>
+
+            </section>
+            <section>
+
+                <p>sudo wget http://repo.mosquitto.org/debian/mosquitto-jessie.list</p><br>
+                <p>sudo apt-get update</p><br>
+                <p>sudo apt-get dist-upgrade</p><br>
+                <p>sudo nano /etc/mosquitto/conf.d/websocket.conf</p><br>
+
+            </section>
+            <section>
+                <p>Paste:<br>listener 1883<br>listener 1884<br>protocol websockets
+                    <p><br>
+                        <p>Hit CTRL + O</p><br>
+                        <p>sudo service mosquitto restart</p><br>
+            </section>
+
+            <section>
+                <p>Open websocket_mqtt in your text editor, and edit line 10 to match your server</p><br>
+                <p>Save and double click index.html in you webbroser, hit the buttons</p><br>
+
+            </section>
+
+            <section>
+                <p>browserMqtt.js allows us to send mqtt messages from an HTML5 native websocket, this is great for enviroments where node are not available</p><br>
+                <a href="https://rubberchickin.com/mqtt-js-download-for-ionicangular-client-use/">https://rubberchickin.com/mqtt-js-download-for-ionicangular-client-use/</a>
+                <p>For example, your github pages or a HTML5 mobile app</p><br>
+            </section>
+
+            <section>
+                <p>Lets connect our ESP8266 to the MQTT server</p>
+                <br>
+                <p>Connect some neopixels</p>
+                <br>
+                <img src="img/espixel.png">
+                <br>
+            </section>
+
+            <section>
+                <p>Open espmqtt_neopixel2 in the Arduino IDE, and edit line 43 to match your server</p><br>
+                <p>Upload espmqtt_neopixel</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m '1'</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m '2'</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m '3'</p><br>
+            </section>
+
+            <section>
+                <p>A note on MQTT topics</p><br>
+                <a href="https://mosquitto.org/man/mqtt-7.html">https://mosquitto.org/man/mqtt-7.html</a>
+            </section>
+
+            <section>
+                <p>cd speak_mqtt, run node index.js</a>
+                </p>
+            </section>
+
+            <section>
+                <p><a href="http://www.blynk.cc/">Blynk</a></p>
+            </section>
+
+
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                condition: function() {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
+    </script>
+</body>
+
+</html>
