@@ -35,14 +35,10 @@
                 <a href="http://bit.ly/2onmI6P">http://bit.ly/2onmI6P</a>
             </section>
             <section>
-                <p>Connect an led</p>
-                <br>
-                <img src="img/mqled.png">
+                <p>Install MQTT FX:</p><br>
+                <a href="http://www.mqttfx.org/">http://www.mqttfx.org/</a>
             </section>
-            <section>
-                <p>Upload WiFiWebServer</p>
-                <br>
-            </section>
+
             <section>
                 <img src="img/aws.png"><br>
             </section>
@@ -143,6 +139,14 @@
             </section>
 
             <section>
+                <p>npm install mqtt -g</p><br>
+                <p>Then, on one terminal</p><br>
+                <p>mqtt sub -t '/hello' -h 'yourserver' -v</p><br>
+                <p>On another terminal</p><br>
+                <p>mqtt pub -t '/hello' -h 'yourserver' -m 'from MQTT.js'</p><br>
+            </section>
+
+            <section>
                 <p>In the code folder open mqtt_ws in a text editor</p><br>
                 <p>Edit line of index.js 2 and change it to your server</p><br>
                 <p>Note on line 14 the topic is /hello</p><br>
@@ -203,13 +207,7 @@
                 <p>MQTT.JS</p><br>
                 <a href="https://www.npmjs.com/package/mqtt">https://www.npmjs.com/package/mqtt</a>
             </section>
-            <section>
-                <p>npm install mqtt -g</p><br>
-                <p>Then, on one terminal</p><br>
-                <p>mqtt sub -t '/hello' -h 'yourserver' -v</p><br>
-                <p>On another terminal</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m 'from MQTT.js'</p><br>
-            </section>
+
             <section>
                 <p>We can connect our ESP8266 to the MQTT server</p>
                 <br>
