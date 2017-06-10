@@ -52,8 +52,19 @@
 
             <section>
                 <p>Public MQTT Server</p><br>
-                <p>In the first type: mosquitto_sub -h ec2-35-161-110-220.us-west-2.compute.amazonaws.com -t /test</p><br>
-                <p>In the second type: mosquitto_pub -h ec2-35-161-110-220.us-west-2.compute.amazonaws.com -t /test -m "message"</p><br>
+                <p>In the first type: mosquitto_sub -h ec2-34-211-197-42.us-west-2.compute.amazonaws.com -t /test</p><br>
+                <p>In the second type: mosquitto_pub -h ec2-34-211-197-42.us-west-2.compute.amazonaws.com -t /test -m "message"</p><br>
+            </section>
+
+            <section>
+                <img src="img/espneo.png"><br>
+                <p>Connect Some Neopixels</p>
+            </section>
+
+            <section>
+                <p>Open espmqtt_neopixel2</p>
+                <p>Set wifi on lines 25 and 26</p>
+                <p>On line 64 change /test to /yourfirstname</p>
             </section>
             <section>
                 <p>Install Arduino MQTT Library</p><br>
@@ -61,7 +72,7 @@
 
             <section>
                 <p>Upload mqtt_neopixels</p><br>
-                <p>mosquitto_pub -h ec2-35-161-110-220.us-west-2.compute.amazonaws.com -t /test -m "1"</p><br>
+                <p>mosquitto_pub -h ec2-34-211-197-42.us-west-2.compute.amazonaws.com -t /yourfirstname -m "1"</p><br>
             </section>
 
             <section>
@@ -102,11 +113,11 @@
             </section>
             <section>
                 <img src="img/ec24.png" height="400"><br>
-                <p>Create a new Kay Pair and download the key, make a new folder save it there</p><br>
+                <p>Create a new Key Pair and download the key, make a new folder save it there</p><br>
             </section>
             <section>
                 <img src="img/ec25.png" height="400"><br>
-                <p>Wait for instace to Launch</p><br>
+                <p>Wait for instance to Launch</p><br>
             </section>
             <section>
                 <img src="img/ec26.png" height="400"><br>
@@ -117,6 +128,7 @@
                 <p>From the terminal, cd to the folder where you saved your key</p><br>
                 <p>'chmod 400 yourkeyname.pem' Do this only once</p><br>
                 <p>'ssh -i "yourkeyname.pem" yourserver.compute.amazonaws.com</p><br>
+
             </section>
             <section>
                 <img src="img/login.png" height="400"><br>

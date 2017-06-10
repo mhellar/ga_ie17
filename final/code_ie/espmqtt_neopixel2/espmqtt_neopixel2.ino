@@ -16,7 +16,7 @@
 //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 //   NEO_RGBW    Pixels are wired for RGBW bitstream (NeoPixel RGBW products)
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(8, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, PIN, NEO_GRB + NEO_KHZ800);
 
 #include <ESP8266WiFi.h>
 #include <MQTTClient.h>
@@ -40,7 +40,7 @@ void connect(); // <- predefine connect() for setup()
 void setup() {
   Serial.begin(9600);
   WiFi.begin(ssid, pass);
-  client.begin("35.167.192.176", net);
+  client.begin("34.211.197.42", net);
   connect();
 
   strip.begin();

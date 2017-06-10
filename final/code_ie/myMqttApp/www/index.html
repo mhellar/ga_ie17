@@ -36,7 +36,7 @@
     <script src="js/browserMqtt.js"></script>
 
     <script>
-        var client = mqtt.connect('ws://ec2-35-161-110-220.us-west-2.compute.amazonaws.com:1884') // you add a ws:// url here
+        var client = mqtt.connect('ws://ec2-34-211-197-42.us-west-2.compute.amazonaws.com:1884') // you add a ws:// url here
         client.subscribe("/test")
 
         function transmit(arg) {
@@ -49,15 +49,21 @@
 <body ng-app="starter" ng-controller="PlaylistsCtrl">
 
     <ion-pane>
-        <ion-header-bar class="bar-stable">
+        <!--<ion-header-bar class="bar-stable">
             <h1 class="title">Fastled Wifi Control</h1>
-        </ion-header-bar>
+        </ion-header-bar>-->
         <ion-content>
             <!-- <button class="button icon ion-gear-a" onclick="test()" ng-click="showPopup()" ></button> -->
             <div class="row">
                 <div class="col-33">
-                    <button class="button button-positive" onclick=" transmit('1')">
+                    <button class="button button-energized" onclick=" transmit('1')">
                     Sequence A
+                    </button>
+                    <button class="button button-positive" onclick=" transmit( '2') ">
+                    Sequence B
+                    </button>
+                    <button class="button button-calm" onclick=" transmit( '3') ">
+                    Sequence C
                     </button>
                 </div>
             </div>
