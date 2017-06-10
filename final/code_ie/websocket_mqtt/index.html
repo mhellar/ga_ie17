@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="js/browserMqtt.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.css" />
+
+    <script>
+        var client = mqtt.connect('ws://35.160.68.115:1884') // you add a ws:// url here
+        client.subscribe("/hello")
+
+        function transmit(arg) {
+            client.publish("/hello", arg)
+            console.log(arg);
+        }
+    </script>
+</head>
+
+<body>
+    <a class="waves-effect waves-light btn" onclick="transmit('1')">1</a>
+    <a class="waves-effect waves-light btn" onclick="transmit('2')">2</a>
+    <a class="waves-effect waves-light btn" onclick="transmit('3')">3</a>
+</body>
+
+</html>
