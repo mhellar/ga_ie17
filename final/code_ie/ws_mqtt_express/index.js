@@ -5,7 +5,7 @@ var io = require('socket.io')(server);
 
 
 var mqtt = require('mqtt');
-var client = mqtt.connect('mqtt://35.167.192.176');
+var client = mqtt.connect('mqtt://ec2-34-211-197-42.us-west-2.compute.amazonaws.com');
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');

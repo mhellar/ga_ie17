@@ -40,7 +40,7 @@ void connect(); // <- predefine connect() for setup()
 void setup() {
   Serial.begin(9600);
   WiFi.begin(ssid, pass);
-  client.begin("34.211.197.42", net);
+  client.begin("52.25.12.26", net);
   connect();
 
   strip.begin();
