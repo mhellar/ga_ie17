@@ -30,7 +30,7 @@
     <div class="reveal">
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-            <section data-background="img/nodemcu.png">
+            <section data-background="img/esp_pinout.png">
             </section>
             <section>
                 <p>The ESP8266</p>
@@ -45,7 +45,7 @@
             </section>
 
             <section>
-                <p>The NodeMCU is a mini Arduino with Wifi, that is $10.00!</p>
+                <p>The Feather ESP8266 is a mini Arduino that is more powerful with Wifi, that is $16.00!</p>
                 <br>
             </section>
             <section>
@@ -75,12 +75,12 @@
                 </p>
             </section>
             <section>
-                <img src="img/nodemcu_pins.png">
+                <img src="img/esp_pinout.png" height="600">
             </section>
             <section>
                 <p>Connect an led</p>
                 <br>
-                <img src="img/mqled.png">
+                <img src="img/esp1.png">
             </section>
             <section>
                 <p>Upload Blink</p>
@@ -97,13 +97,47 @@
             <section>
                 <p>Hook Up A Servo</p>
                 <br>
-                <img src="img/servoesp.png">
+                <img src="img/espservo.png">
             </section>
             <section>
                 <p>Upload ESPwebpageServo</p>
                 <br>
             </section>
             <section>
+                <p>Connect some WS2812's</p>
+                <br>
+                <img src="img/espneo.png">
+            </section>
+            <section>
+                <p>Open WS2812FX/examples/esp8266_webinterface</p>
+                <p>Change Lines 48 and 49 to the wifi info</p>
+                <p>Upload</p>
+                <p>Open the serial Monitor to 115200 baud and hit reset</p>
+                <p>It will give you the IP address, open this in your webbrowser</p>
+            </section>
+            <section>
+                <p>Sending OSC data from the ESP</p>
+            </section>
+            <section>
+                <p>Install https://github.com/CNMAT/OSC</p>
+                <p>Download zip, extract, remove -master at end</p>
+                <p>Place in documents/arduino/libraries folder</p>
+            </section>
+            <section>
+                <p>Open ESP8266sendMessageADXL</p>
+                <p>Change lines 22 and 23 to the wifi</p>
+                <p>set line 26 to your computers IP address</p>
+            </section>
+            <section>
+                <p>cd osc_simple</p>
+                <p>npm install & node index.js</p>
+            </section>
+            <section>
+                <p>cd osc_threejs</p>
+                <p>npm install & node index.js</p>
+                <p>open localhost:3000</p>
+            </section>
+            <!-- <section>
                 <br>
                 <img src="img/mqttorg.png">
                 <br>
@@ -180,7 +214,7 @@
             </section>
             <section>
                 <p><a href="http://www.blynk.cc/">Blynk</a></p>
-            </section>
+            </section> -->
         </div>
     </div>
     <script src="lib/js/head.min.js"></script>
