@@ -1,5 +1,5 @@
 var mqtt = require('mqtt');
-var client = mqtt.connect('mqtt://52.39.243.247');
+var client = mqtt.connect('mqtt://35.167.192.176');
 var app = require('express')();
 
 var server = app.listen(3000);
