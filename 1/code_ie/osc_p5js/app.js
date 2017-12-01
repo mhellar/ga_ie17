@@ -18,15 +18,10 @@ app.get('/', function(req, res) {
 });
 
 //Connect to server, Our device
-var oscServer = new osc.Server(8000, '192.168.8.185');
+var oscServer = new osc.Server(8000, '0.0.0.0');
 
 //When we recieve a message send it as a web socket
 oscServer.on("message", function(msg, rinfo) {
-    console.log("TUIO message:");
     console.log(msg);
-    var ctrl = msg[0];
-    var val = msg[1];
-    
-    io.sockets.emit('data', val);
+    io.sockets.emit('data', msg);
 });
-
