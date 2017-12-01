@@ -38,9 +38,9 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(16, PIN, NEO_GRB + NEO_KHZ800);
 
 // Update these with values suitable for your network.
 
-const char* ssid = "Wired2";
-const char* password = "12!trout";
-const char* mqtt_server = "10.0.0.193";
+const char* ssid = "Gray Area Incubator";
+const char* password = "grandstand";
+const char* mqtt_server = "10.10.7.248";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -113,7 +113,7 @@ void reconnect() {
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish("outTopic", "hello world");
+      client.publish("/hello", "hello world");
       // ... and resubscribe
       client.subscribe("/hello");
     } else {
@@ -133,14 +133,14 @@ void loop() {
   client.loop();
 
   long now = millis();
-  if (now - lastMsg > 2000) {
-    lastMsg = now;
-    ++value;
-    snprintf (msg, 75, "hello world #%ld", value);
-    Serial.print("Publish message: ");
-    Serial.println(msg);
-    client.publish("outTopic", msg);
-  }
+//  if (now - lastMsg > 2000) {
+//    lastMsg = now;
+//    ++value;
+//    snprintf (msg, 75, "hello world #%ld", value);
+//    Serial.print("Publish message: ");
+//    Serial.println(msg);
+//    client.publish("outTopic", msg);
+//  }
 }
 
 // Fill the dots one after the other with a color
