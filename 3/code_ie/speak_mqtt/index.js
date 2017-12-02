@@ -9,7 +9,7 @@ var client = mqtt.connect('mqtt://35.167.192.176');
 
 var say = 'say ';
 
-function speak(whatosay){
+function speak(whatosay) {
     //speak the string
     exec(say + whatosay);
     //log it to the console
@@ -22,7 +22,7 @@ app.get('/', function(req, res) {
 
 client.on('connect', function() {
     client.subscribe('/#');
-    client.publish('/test', 'online');
+    client.publish('/leds', 'online');
 
 });
 
@@ -30,21 +30,18 @@ client.on('message', function(topic, message) {
     // message is Buffer 
     console.log(message.toString());
     io.sockets.emit('data', message.toString());
-    if(message.toString() === '1'){
-    // speak("-v Agnes setting led to red");
-}   else if(message.toString() === '2'){
-    // speak("-v Daniel setting led to green");
-}   else if(message.toString() === '3'){
-    // speak("-v Ralph setting led to blue");
-}   else if(message.toString() === 'hello'){
-    // speak("-v Zarvox greeting human");
-}   else if(message.toString() === '5'){
-}
+    if (message.toString() === '255000000') {
+        speak("setting led to red");
+    } else if (message.toString() === '000255000') {
+        speak("setting led to green");
+    } else if (message.toString() === '000000255') {
+        speak("setting led to blue");
+    }
 });
 
 io.on('connection', function(socket) {
     socket.on('message', function(msg) {
         console.log(msg);
-        client.publish('/test', msg);
+        client.publish('/leds', msg);
     });
 });
