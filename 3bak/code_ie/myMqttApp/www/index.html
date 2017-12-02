@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+    <script src="js/browserMqtt.js"></script>
+
+    <script>
+        var client = mqtt.connect('ws://ec2-35-161-110-220.us-west-2.compute.amazonaws.com:1884') // you add a ws:// url here
+        client.subscribe("/test")
+
+        function transmit(arg) {
+            client.publish("/test", arg)
+            console.log(arg);
+        }
+    </script>
+</head>
+
+<body ng-app="starter" ng-controller="PlaylistsCtrl">
+
+    <ion-pane>
+        <ion-header-bar class="bar-stable">
+            <h1 class="title">Fastled Wifi Control</h1>
+        </ion-header-bar>
+        <ion-content>
+            <!-- <button class="button icon ion-gear-a" onclick="test()" ng-click="showPopup()" ></button> -->
+            <div class="row">
+                <div class="col-33">
+                    <button class="button button-positive" onclick=" transmit('1')">
+                    Sequence A
+                    </button>
+                </div>
+            </div>
+
+
+        </ion-content>
+    </ion-pane>
+</body>
+
+</html>

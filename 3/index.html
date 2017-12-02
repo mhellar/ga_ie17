@@ -30,184 +30,89 @@
     <div class="reveal">
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
-            <section data-background-transition="slide" data-background="img/giphy2.gif">
-
-            </section>
-            <section data-background-transition="slide" data-background="img/giphy3.gif">
-
-            </section>
-            <section data-background-transition="slide" data-background="img/giphy.gif">
-
+            <section>
+                <a href="http://bit.ly/2onmI6P">Code Download</a>
             </section>
             <section>
-                <p>Download the Code</p><br>
-                <a href="http://bit.ly/2nWOiJZ">http://bit.ly/2nWOiJZ</a>
+                <p>Sending OSC data from the ESP</p>
             </section>
             <section>
-                <p>Let us get to a known good working state</p><br>
-                <p>1. Log in to your AWS console</p><br>
-                <p>2. CD into the folder for your AWS key we created on Thurs</p><br>
-                <p>3. SSH into your server, ssh -i "YOURKEY.pem" YOURSERVER Windows Users use PuTTY</p><br>
-                <p>*HINT* Mac users can add the key to their Keychain by typing ssh-add -K YOURKEY.pem </p><br>
-            </section>
-
-            <section>
-                <p>Let's test our MQTT server</p><br>
-                <p>sudo npm install mqtt -g</p><br>
-                <p>Then, on one terminal</p><br>
-                <p>mqtt sub -t '/hello' -h 'yourserver' -v</p><br>
-                <p>On another terminal</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m 'from MQTT.js'</p><br>
-            </section>
-
-            <section>
-                <p>MQTT.JS</p><br>
-                <a href="https://www.npmjs.com/package/mqtt">https://www.npmjs.com/package/mqtt</a>
-            </section>
-
-            <section>
-                <p>In the SSH terminal connected to your server</p><br>
-                <p>cd</p><br>
-                <p>cd mqtt_ws</p><br>
-                <p>node index.jd</p><br>
-                <p>go to YOURSERVER:3000 in the browser</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m 'from MQTT.js'</p><br>
+                <p>Install https://github.com/CNMAT/OSC</p>
+                <p>Download zip, extract, remove -master at end</p>
+                <p>Place in documents/arduino/libraries folder</p>
             </section>
             <section>
-                <p>Currently we need to login and manuall start our node app every time, let's fix that</p><br>
-                <p>In the SSH terminal connected to your server</p><br>
-                <p>sudo npm install forever -g</p><br>
-                <p>forever start index.js</p><br>
-            </section>
-
-            <section>
-                <p>We can enable websockets on the Mosqitto Server, Hoorah!</p><br>
-                <a href="http://blog.ithasu.org/2016/05/enabling-and-using-websockets-on-mosquitto/">http://blog.ithasu.org/2016/05/enabling-and-using-websockets-on-mosquitto/</a>
-                <p>In the SSH terminal connected to your server</p><br>
-                <p>wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key</p><br>
-                <p>sudo apt-key add mosquitto-repo.gpg.key</p><br>
-
+                <p>Open ESP8266sendMessageADXL</p>
+                <p>Change lines 22 and 23 to the wifi</p>
+                <p>set line 26 to your computers IP address</p>
             </section>
             <section>
-
-                <p>sudo wget http://repo.mosquitto.org/debian/mosquitto-jessie.list</p><br>
-                <p>sudo apt-get update</p><br>
-                <p>sudo apt-get dist-upgrade</p><br>
-                <p>sudo nano /etc/mosquitto/conf.d/websocket.conf</p><br>
-
+                <p>cd osc_simple</p>
+                <p>npm install & node index.js</p>
             </section>
             <section>
-                <p>Paste:<br>listener 1883<br>listener 1884<br>protocol websockets
-                    <p><br>
-                        <p>Hit CTRL + O</p><br>
-                        <p>sudo service mosquitto restart</p><br>
+                <p>cd osc_threejs</p>
+                <p>npm install & node index.js</p>
+                <p>open localhost:3000</p>
             </section>
-
-            <section>
-                <p>Open websocket_mqtt in your text editor, and edit line 10 to match your server</p><br>
-                <p>Save and double click index.html in you webbroser, hit the buttons</p><br>
-
-            </section>
-
-            <section>
-                <p>browserMqtt.js allows us to send mqtt messages from an HTML5 native websocket, this is great for enviroments where node are not available</p><br>
-                <a href="https://rubberchickin.com/mqtt-js-download-for-ionicangular-client-use/">https://rubberchickin.com/mqtt-js-download-for-ionicangular-client-use/</a>
-                <p>For example, your github pages or a HTML5 mobile app</p><br>
-            </section>
-
-            <section>
-                <p>Let's make a mobile app</p><br>
-                <img src="img/ionic.jpg">
-            </section>
-
-            <section>
-                <p>Make new folder called ionic_apps</p><br>
-                <p>cd to that folder in the terminal</p><br>
-                <p>ionic start myApp blank --v1</p><br>
-                <p>cd myApp</p><br>
-                <p>ionic serve</p><br>
-            </section>
-
-            <section>
-                <p>cd to myMqttApp in todays code folder</p><br>
-                <p>cd to that folder in the terminal</p><br>
-                <p>cd myApp</p><br>
-                <p>drag myMqttApp onto your text editor</p><br>
-                <p>open www/index.html</p><br>
-            </section>
-            <section>
-                <p>Push the app to you phone</p><br>
-                <a href="http://apps.ionic.io/signup?_ga=1.201162923.400687574.1488597366">Sign Up For an Ionic Account</a>
-                <p>In the terminal 'ionic upload'</p><br>
-                <p>Got o the ionic view app on you phone</p><br>
-            </section>
-
-            <section>
-                <p>Lets connect our ESP8266 to the MQTT server</p>
+            <<section>
                 <br>
-                <p>Connect some neopixels</p>
+                <img src="img/mqttorg.png">
                 <br>
-                <img src="img/espixel.png">
-                <br>
-            </section>
+                </section>
 
-            <section>
-                <p>Open espmqtt_neopixel2 in the Arduino IDE, and edit line 43 to match your server</p><br>
-                <p>Upload espmqtt_neopixel</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m '1'</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m '2'</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m '3'</p><br>
-            </section>
+                <section>
+                    <br>
+                    <img src="img/mqtt-explanation.png">
+                    <br>
+                </section>
 
-            <section>
-                <p>A note on MQTT topics</p><br>
-                <a href="https://mosquitto.org/man/mqtt-7.html">https://mosquitto.org/man/mqtt-7.html</a>
-            </section>
+                <section>
+                    <p>Open a terminal</p>
+                    <p>sudo npm install mosca bunyan -g</p>
+                    <p>mosca -v | bunyan</p>
+                </section>
 
-            <section>
-                <p>Open speak_mqttin a text editor, and edit line 8 of index.js to mathc your server</p><br>
-                <p>cd speak_mqtt, run node index.js</a>
-                </p>
-            </section>
+                <section>
+                    <p>Open a second terminal</p>
+                    <p>mqtt sub -t '/hello' -h 'localhost'</p>
+                </section>
 
-            <section>
-                <p><a href="http://www.blynk.cc/">Blynk</a></p>
-            </section>
-            <section>
-                <p>The Wekinator</p><br>
-                <img src="img/wekinator31.jpg">
-            </section>
-            <section>
-                <img src="img/wek.jpg">
-            </section>
-            <section>
-                <img src="img/ml.jpg">
-            </section>
-            <section>
-                <p>Make sure you have downloaded:</p><br>
-                <a href="http://www.wekinator.org/downloads/">The Wekinator</a><br>
-                <a href="http://www.wekinator.org/examples/">The Quickstart Pack</a>
-            </section>
-            <section>
-                <p>Open Simple_Mouse_DraggedObject_2Inputs from the inputs folder</p><br>
-                <p>Open Processing_FMSynth_3ContinuousOutputs outputs folder</p><br>
-                <p>Open the Wekinator</p><br>
-                <p>Set 2 inputs</p><br>
-                <p>Set 3 outputs</p><br>
-            </section>
-            <section>
-                <p>Play with the examples</p><br>
-            </section>
-            <section>
-                <p>Using the Circuit Payground as a Input source</p><br>
-                <p>Open circuit_pg_wek in arduino, and Upload</p><br>
-                <p>Edit serial_ws_wek in a text editor, set the proper serial port on line 11</p><br>
-                <p>CD serial_ws_wek, npm install, node index.js </p><br>
-                <p>Open the Wekinator</p><br>
-                <p>Set 5 inputs</p><br>
-                <p>Set 3 outputs</p><br>
-                <p>Open Processing_FMSynth_3ContinuousOutputs outputs folder</p><br>
-            </section>
+                <section>
+                    <p>Open a third terminal</p>
+                    <p>mqtt pub -t '/hello' -h 'localhost' -m 'hi from me'</p>
+                </section>
+                <section>
+                    <p>In Arduino install the PubSubClient Library</p>
+                </section>
+                <section>
+                    <p>Connect some WS2812's</p>
+                    <br>
+                    <img src="img/espneo.png" height="600">
+                </section>
+                <section>
+                    <p>In Arduino install the PubSubClient Library</p>
+                </section>
+                <section>
+                    <p>Open mqtt_esp8266_neopixel</p>
+                    <p>Set wifi on lines 41 and 42</p>
+                    <p>Set server on line 43</p>
+                </section>
+                <section>
+                    <p>mqtt pub -t '/hello' -h 'localhost' -m '1'</p>
+                    <p>mqtt pub -t '/hello' -h 'localhost' -m '2'</p>
+                    <p>mqtt pub -t '/hello' -h 'localhost' -m '3'</p>
+                </section>
+                <section>
+                    <p>Open MQTT_panel in a text editor</p>
+                    <p>set line 8 to the server</p>
+                    <p>cd in terminal, npm install, noder index.js, go to localhost:3000</p>
+                </section>
+                <section>
+                    <p>Try setting all feathers to the same server</p>
+                </section>
+
+
         </div>
     </div>
     <script src="lib/js/head.min.js"></script>

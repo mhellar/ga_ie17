@@ -16,10 +16,10 @@
 #include <ESP8266WiFi.h>
 #include <MQTTClient.h>
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(16, PIN, NEO_GRB + NEO_KHZ800);
 
-const char *ssid = "extreme";
-const char *pass = "extreme!!!";
+const char *ssid = "Wired2";
+const char *pass = "12!trout";
 
 int seq;
 
@@ -33,9 +33,9 @@ void connect(); // <- predefine connect() for setup()
 void setup() {
   strip.begin();
   strip.show();
-  Serial.begin(9600);
+  Serial.begin(115200);
   WiFi.begin(ssid, pass);
-  client.begin("ec2-35-161-110-220.us-west-2.compute.amazonaws.com", net);
+  client.begin("10.0.0.193", net);
 
   connect();
 }
@@ -48,14 +48,14 @@ void connect() {
   }
 
   Serial.print("\nconnecting...");
-  while (!client.connect("arduino", "try", "try")) {
+  while (!client.connect("/hello", "try", "try")) {
     Serial.print(".");
     delay(1000);
   }
 
   Serial.println("\nconnected!");
 
-  client.subscribe("/test");
+  client.subscribe("/hello");
   // client.unsubscribe("/example");
 }
 
@@ -70,11 +70,11 @@ void loop() {
   if(seq == 1){
   rainbow(20);
   }else if(seq == 2){
-  colorWipe(strip.Color(255, 0, 0), 50);
+  colorWipe(strip.Color(255, 0, 0), 10);
   }else if(seq == 3){
-  colorWipe(strip.Color(0, 255, 0), 50);
+  colorWipe(strip.Color(0, 255, 0), 10);
   }else if(seq == 4){
-  colorWipe(strip.Color(0, 0, 255), 50);
+  colorWipe(strip.Color(0, 0, 255), 10);
   }else if(seq == 5){
   theaterChaseRainbow(5);
   }

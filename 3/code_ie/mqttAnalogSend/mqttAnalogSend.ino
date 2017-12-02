@@ -10,8 +10,8 @@
 #include <ESP8266WiFi.h>
 #include <MQTTClient.h>
 
-const char *ssid = "extreme";
-const char *pass = "extreme!!!";
+const char *ssid = "Wired2";
+const char *pass = "12!trout";
 
 char msgBuffer[20];
 const int AnalogIn = A0;

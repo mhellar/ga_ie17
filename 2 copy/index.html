@@ -31,218 +31,86 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
             <section>
-                <p>Code is here:</p><br>
-                <a href="http://bit.ly/2onmI6P">http://bit.ly/2onmI6P</a>
+                <a href="http://bit.ly/2onmI6P">Code Download</a>
             </section>
             <section>
-                <p>Install MQTT FX:</p><br>
-                <a href="http://www.mqttfx.org/">http://www.mqttfx.org/</a>
-            </section>
-
-            <section>
-                <img src="img/aws.png"><br>
+                <p>Sending OSC data from the ESP</p>
             </section>
             <section>
-                <img src="img/awsconsole.png" height="400"><br>
-                <p>Log on to the AWS console</p><br>
+                <p>Install https://github.com/CNMAT/OSC</p>
+                <p>Download zip, extract, remove -master at end</p>
+                <p>Place in documents/arduino/libraries folder</p>
             </section>
             <section>
-                <img src="img/awsec2.png" height="400"><br>
-                <p>Hit the Launch Instace button</p><br>
+                <p>Open ESP8266sendMessageADXL</p>
+                <p>Change lines 22 and 23 to the wifi</p>
+                <p>set line 26 to your computers IP address</p>
             </section>
             <section>
-                <img src="img/ec21.png" height="400"><br>
-                <p>Choose an OS, we will use Ubuntu Server 16.04</p><br>
+                <p>cd osc_simple</p>
+                <p>npm install & node index.js</p>
             </section>
             <section>
-                <img src="img/ec22.png" height="400"><br>
-                <p>Choose the instace type, t2.nicro</p><br>
+                <p>cd osc_threejs</p>
+                <p>npm install & node index.js</p>
+                <p>open localhost:3000</p>
             </section>
-            <section>
-                <img src="img/ec23.png" height="400"><br>
-                <p>Hit Launch</p><br>
-            </section>
-            <section>
-                <img src="img/ec24.png" height="400"><br>
-                <p>Create a new Kay Pair and download the key, make a new folder save it there</p><br>
-            </section>
-            <section>
-                <img src="img/ec25.png" height="400"><br>
-                <p>Wait for instace to Launch</p><br>
-            </section>
-            <section>
-                <img src="img/ec26.png" height="400"><br>
-                <p>Connect to you instance</p><br>
-            </section>
-            <section>
-                <p>Mac users connect this way</p><br>
-                <p>From the terminal, cd to the folder where you saved your key</p><br>
-                <p>'chmod 400 yourkeyname.pem' Do this only once</p><br>
-                <p>'ssh -i "yourkeyname.pem" yourserver.compute.amazonaws.com</p><br>
-            </section>
-            <section>
-                <p>Windows users connect this way</p><br>
-                <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html</a>
-            </section>
-            <section>
-                <img src="img/login.png" height="400"><br>
-                <p>Once you are connected, you should have a window like this</p><br>
-            </section>
-            <section>
-                <img src="img/mrrobot.png"><br>
-            </section>
-            <section>
-                <p>Lets update the system</p><br>
-                <p>'sudo apt-get update'</p><br>
-                <p>'sudo apt-get upgrade'</p><br>
-            </section>
-            <section>
-                <p>Install NodeJS</p><br>
-                <p>'sudo apt-get install nodejs</p><br>
-                <p>'sudo apt-get install npm'</p><br>
-                <p>'sudo npm install n -g'</p><br>
-                <p>'sudo n latest'</p><br>
-                <p>sudo ln -s `which nodejs` /usr/bin/node</p><br>
-            </section>
-            <section>
-                <p>We need to open some ports</p><br>
-                <img src="img/sec.png"><br>
-                <p>Click on the security group for your server</p><br>
-            </section>
-            <section>
-                <p>Click the Inbound Tab</p><br>
-                <img src="img/inbound.png"><br>
-                <p>Currently the only port that is open is 22 for SSH</p><br>
-            </section>
-            <section>
-                <p>Hit edit, the add rule</p><br>
-                <img src="img/inbound1.png"><br>
-            </section>
-            <section>
-                <p>Add the following rules and then save</p><br>
-                <img src="img/inbound2.png"><br>
-            </section>
-
-            <section>
-                <p>Mosquitto is an open source MQTT server, Lets install it.</p><br>
-                <p>sudo apt-get install mosquitto mosquitto-clients</p><br>
-            </section>
-
-            <section>
-                <p>Test it out with mqtt.fx, subscribe to a topic</p><br>
-                <img src="img/mqtt_sub.png" height="400"><br>
-            </section>
-
-            <section>
-                <p>Publish to the same topic</p><br>
-                <img src="img/mqtt_pub.png" height="400"><br>
-            </section>
-
-            <section>
-                <p>npm install mqtt -g</p><br>
-                <p>Then, on one terminal</p><br>
-                <p>mqtt sub -t '/hello' -h 'yourserver' -v</p><br>
-                <p>On another terminal</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m 'from MQTT.js'</p><br>
-            </section>
-
-            <section>
-                <p>In the code folder open mqtt_ws in a text editor</p><br>
-                <p>Edit line of index.js 2 and change it to your server</p><br>
-                <p>Note on line 14 the topic is /hello</p><br>
-            </section>
-
-            <section>
-                <p>In the terminal cd to mqtt_js</p><br>
-                <p>npm install</p><br>
-                <p>Node index.js</p><br>
-                <p>Open localhost:3000 in the webrowser</p><br>
-                <p>Publish to /hello with mqtt.fx</p><br>
-            </section>
-
-            <section>
-                <p>Open Filezilla and go to the settings tab</p><br>
-                <img src="img/filez1.png"><br>
-            </section>
-
-
-            <section>
-                <p>Open Filezilla and go to the settings tab</p><br>
-                <img src="img/filez1.png"><br>
-            </section>
-
-            <section>
-                <p>Under the SFTP option add the key you doanloaded from AWS and hit ok</p><br>
-                <img src="img/filez2.png"><br>
-            </section>
-
-            <section>
-                <p>Open the Site Manager, set the host to the address of your server, protocol is sftp </p><br>
-                <p>Logon type is interactive and the User is Ubuntu, then hit connect </p><br>
-                <img src="img/filez3.png"><br>
-            </section>
-
-            <section>
-                <p>Edit line 15 of Index.html in mqtt.js and chage localhost to your server</p><br>
-                <p>Go to the mqtt_ws folder, delete the node_modules folder and upload with filezilla</p><br>
-            </section>
-
-            <section>
-                <p>Go to the terminal where you are logged into your server</p><br>
-                <p>Type ls, the cd mqtt_ws, npm install, then node index.js</p><br>
-                <p>In a webbrowser, go to your servers address:3000</p><br>
-                <p>Publish some data to the topic /helllo</p><br>
-                <img src="img/term1.png"><br>
-            </section>
-            <section>
-                <p>Connect a potentiometer to the nodemcu</p><br>
-                <img src="img/nodepot.png"><br>
-            </section>
-            <section>
-                <p>Open mqttAnalogSend in the Arduino IDE, and edit line 32 to match your server</p><br>
-                <p>Upload and check your page</p><br>
-            </section>
-
-            <section>
-                <p>MQTT.JS</p><br>
-                <a href="https://www.npmjs.com/package/mqtt">https://www.npmjs.com/package/mqtt</a>
-            </section>
-
-            <section>
-                <p>We can connect our ESP8266 to the MQTT server</p>
+            <<section>
                 <br>
-                <p>Connect some neopixels</p>
+                <img src="img/mqttorg.png">
                 <br>
-                <img src="img/espixel.png">
-                <br>
-            </section>
-            <section>
-                <p>Open espmqtt_neopixel2 in the Arduino IDE, and edit line 43 to match your server</p><br>
-                <p>Upload espmqtt_neopixel</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m '1'</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m '2'</p><br>
-                <p>mqtt pub -t '/hello' -h 'yourserver' -m '3'</p><br>
-            </section>
+                </section>
 
-            <section>
-                <p>A note on MQTT topics</p><br>
-                <a href="https://mosquitto.org/man/mqtt-7.html">https://mosquitto.org/man/mqtt-7.html</a>
-            </section>
+                <section>
+                    <br>
+                    <img src="img/mqtt-explanation.png">
+                    <br>
+                </section>
 
-            <section>
-                <p>cd ws_mqtt_express, run node index.js</a>
-                </p>
-            </section>
+                <section>
+                    <p>Open a terminal</p>
+                    <p>sudo npm install mosca bunyan -g</p>
+                    <p>mosca -v | bunyan</p>
+                </section>
 
-            <section>
-                <p>cd speak_mqtt, run node index.js</a>
-                </p>
-            </section>
+                <section>
+                    <p>Open a second terminal</p>
+                    <p>mqtt sub -t '/hello' -h 'localhost'</p>
+                </section>
 
-            <section>
-                <p><a href="http://www.blynk.cc/">Blynk</a></p>
-            </section>
-
+                <section>
+                    <p>Open a third terminal</p>
+                    <p>mqtt pub -t '/hello' -h 'localhost' -m 'hi from me'</p>
+                </section>
+                <section>
+                    <p>In Arduino install the PubSubClient Library</p>
+                </section>
+                <section>
+                    <p>Connect some WS2812's</p>
+                    <br>
+                    <img src="img/espneo.png" height="600">
+                </section>
+                <section>
+                    <p>In Arduino install the PubSubClient Library</p>
+                </section>
+                <section>
+                    <p>Open mqtt_esp8266_neopixel</p>
+                    <p>Set wifi on lines 41 and 42</p>
+                    <p>Set server on line 43</p>
+                </section>
+                <section>
+                    <p>mqtt pub -t '/hello' -h 'localhost' -m '1'</p>
+                    <p>mqtt pub -t '/hello' -h 'localhost' -m '2'</p>
+                    <p>mqtt pub -t '/hello' -h 'localhost' -m '3'</p>
+                </section>
+                <section>
+                    <p>Open MQTT_panel in a text editor</p>
+                    <p>set line 8 to the server</p>
+                    <p>cd in terminal, npm install, noder index.js, go to localhost:3000</p>
+                </section>
+                <section>
+                    <p>Try setting all feathers to the same server</p>
+                </section>
 
 
         </div>
