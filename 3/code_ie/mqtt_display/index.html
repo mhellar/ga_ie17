@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mqtt Panel</title>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.css" integrity="sha256-3AnlRNIdX11hf3yyjAb12b2Tac0VmZxGxpVRURyJIAw=" crossorigin="anonymous" />
+    <script>
+        var outgoing = "hi";
+        var socket = io.connect('//localhost:3000');
+
+        socket.on('data', function(data) {
+            console.log(data);
+            $('#incoming').text(data);
+        });
+
+        socket.on('error', function() {
+            console.error(arguments)
+        });
+
+        function sendMsg(msg) {
+            socket.emit('message', msg);
+            console.log(msg);
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="incoming"></h1>
+    <a class="waves-effect red accent-2 waves-light btn-large" onclick="sendMsg('255000000')" id="target">Red</a>
+    <a class="waves-effect teal accent-2 waves-light btn-large" onclick="sendMsg('000255000')" id="target">Green</a>
+    <a class="waves-effect light-blue accent-2 waves-light btn-large" onclick="sendMsg('000000255')" id="target">Blue</a>
+</body>
+
+</html>
