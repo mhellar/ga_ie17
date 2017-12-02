@@ -30,18 +30,18 @@ client.on('message', function(topic, message) {
     // message is Buffer 
     console.log(message.toString());
     io.sockets.emit('data', message.toString());
-    if (message.toString() === '1') {
+    if (message.toString() === '255000000') {
         speak("setting led to red");
-    } else if (message.toString() === '2') {
+    } else if (message.toString() === '000255000') {
         speak("setting led to green");
-    } else if (message.toString() === '3') {
-        speak("Ralph setting led to blue");
+    } else if (message.toString() === '000000255') {
+        speak("setting led to blue");
     }
 });
 
 io.on('connection', function(socket) {
     socket.on('message', function(msg) {
         console.log(msg);
-        client.publish('/hello', msg);
+        client.publish('/leds', msg);
     });
 });

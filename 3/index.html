@@ -77,9 +77,10 @@
                     <p>Set server on line 18</p>
                 </section>
                 <section>
-                    <p>mqtt pub -t '/hello' -h 'localhost' -m '1'</p>
-                    <p>mqtt pub -t '/hello' -h 'localhost' -m '2'</p>
-                    <p>mqtt pub -t '/hello' -h 'localhost' -m '3'</p>
+                    <p>mqtt pub -t '/leds' -h 'localhost' -m '255000000'</p>
+                    <p>mqtt pub -t '/leds' -h 'localhost' -m '000255000'</p>
+                    <p>mqtt pub -t '/leds' -h 'localhost' -m '000000255'</p>
+
                 </section>
                 <section>
                     <p>Open MQTT_panel in a text editor</p>
