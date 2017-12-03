@@ -13,8 +13,8 @@ Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, NEO_PIN, NEO_GRB + NEO_KHZ
 
 // Update these with values suitable for your network.
 
-const char* ssid = "Wired2";
-const char* password = "12!trout";
+const char* ssid = "....";
+const char* password = "....";
 const char* mqtt_server = "10.0.0.193";
 
 float red = 0.0;
