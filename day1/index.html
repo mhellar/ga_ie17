@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Interactive Environments: Day 1</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+    <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="100px" data-background-transition="zoom">
+                <figure>
+                    <h2 class="intro">Interactive Environments: Day 1</h2 class="intro">
+                    <h2 class="intro">Interactive Environments: Day 1</h2 class="intro">
+                    <h2 class="intro">Interactive Environments: Day 1</h2 class="intro">
+                    <h2 class="intro">Interactive Environments: Day 1</h2 class="intro">
+                </figure>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="90px" data-background-transition="zoom">
+                <p>Grab the code here: <a href="http://bit.ly/2dSYAYw">http://bit.ly/2dSYAYw</a></p>
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="80px" data-background-transition="zoom">
+                <ul>
+                    <h3>Topics for This Week:</h3>
+                    <li class="fragment">Re-Introduction to the esp32</li>
+                    <li class="fragment">Building a touch interface</li>
+                    <li class="fragment">Introduction to MQTT</li>
+                    <li class="fragment">Wireless touch interface</li>
+                </ul>
+            </section>
+            <section>
+                <p>The ESP32</p>
+                <img src="img/esp32.jpg" height="400">
+            </section>
+            <section>
+                <p>ESP32 Pinout</p>
+                <img src="img/esp32pinout.jpg" height="400">
+            </section>
+            <section>
+                <p>Install This Driver</p>
+                <a href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">Here</a>
+            </section>
+            <section>
+                <p>Install for you platform</p>
+                <a href="https://github.com/espressif/arduino-esp32">Here</a>
+            </section>
+
+            <section>
+                <p>Building out a basic touch interface</p>
+                <img src="img/touch.png" height="400">
+            </section>
+
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="80px" data-background-transition="zoom">
+                <ul>
+                    <h3>Steps:</h3>
+                    <li class="fragment">Cut 6 pieces of copper tape</li>
+                    <li class="fragment">Arrange them on paper and stick</li>
+                    <li class="fragment">Solder one side of a jumper wire to each piece of tape</li>
+                </ul>
+            </section>
+
+            <section>
+                <p>Connect some touch Pins to 14,32,15,33,27,12</p>
+                <img src="img/espTouch.png" height="400">
+            </section>
+            <section data-background="img/72-points-mesh.svg" data-background-repeat="repeat" data-background-size="80px" data-background-transition="zoom">
+                <ul>
+                    <h3>Steps:</h3>
+                    <li class="fragment">Upload TouchRead_Serial</li>
+                    <li class="fragment">Open the serial port to and set the baud to 115200</li>
+                    <li class="fragment">Test touching the copper pads</li>
+                </ul>
+            </section>
+            <section>
+                <p>We will come back to this in a bit</p>
+            </section>
+            <section>
+                <br>
+                <img src="img/mqttorg.png">
+                <br>
+            </section>
+
+            <section>
+                <br>
+                <img src="img/mqtt-explanation.png">
+                <br>
+            </section>
+
+            <section>
+                <br>
+                <img src="img/mqttbroker.png">
+                <br>
+            </section>
+
+            <section>
+                <p>Open a terminal</p>
+                <p>sudo npm install mqtt -g</p>
+            </section>
+
+            <section>
+                <p>Open a terminal</p>
+                <p>npm install mosca pino -g</p>
+                <p>mosca -v | pino</p>
+            </section>
+
+            <section>
+                <p>Open a second terminal</p>
+                <p>mqtt sub -t '/hello' -h 'localhost'</p>
+            </section>
+
+            <section>
+                <p>Open a third terminal</p>
+                <p>mqtt pub -t '/hello' -h 'localhost' -m 'hi from me'</p>
+            </section>
+
+            <section>
+                <p>Open a third terminal</p>
+                <p>mqtt pub -t '/hello' -h 'localhost' -m 'My message'</p>
+            </section>
+            <section>
+                <p>Client which publish and subscribe</p>
+                <a href="https://www.npmjs.com/package/mqtt">MQTT.JS</a>
+            </section>
+            <section>
+                <p>Server which brokers messages from the clients</p>
+                <a href="http://www.mosca.io/">Mosca</a>
+            </section>
+            <section>
+                <p>In Arduino install the PubSubClient Library</p>
+                <img src="img/pubsub.png">
+            </section>
+            <section>
+                <p>Upload ESP32TouchInterruptMQTT.ino</p>
+                <p>Set the Wifi to Gray Area Incubator and grandstand</p>
+                <p>Set the MQTT server to your IP address</p>
+            </section>
+            <section>
+                <p>cd to mqtt_ws and open in text editor</p>
+                <p>in the terminal npm install && node index.js</p>
+                <p>Open localhost:3000</p>
+            </section>
+            <section>Combining with Maptastic.js
+                <a href="https://github.com/glowbox/maptasticjs">https://github.com/glowbox/maptasticjs</a>
+            </section>
+            <section>
+                <p>close that last program by hitting CTRL+C twice</p>
+                <p>cd to mqtt_ws_maptastic and open in text editor</p>
+                <p>in the terminal npm install && node index.js</p>
+                <p>Open localhost:3000</p>
+            </section>
+            <section>
+                <p>close that last program by hitting CTRL+C twice</p>
+                <p>cd to mqtt_ws_maptastic_video and open in text editor</p>
+                <p>in the terminal npm install && node index.js</p>
+                <p>Open localhost:3000</p>
+            </section>
+
+            <section>
+                <p>Conductive paint</p>
+                <a href="https://www.bareconductive.com/">https://www.bareconductive.com/</a>
+            </section>
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                condition: function() {
+                    return !!document.querySelector('pre code');
+                },
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }]
+        });
+    </script>
+</body>
+
+</html>

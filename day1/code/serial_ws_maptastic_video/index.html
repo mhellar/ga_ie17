@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="js/howler.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        var sound1 = new Howl({
+            src: ['snd/abs.wav']
+        });
+        var sound2 = new Howl({
+            src: ['snd/bit.wav']
+        });
+        var sound3 = new Howl({
+            src: ['snd/fx.wav']
+        });
+        var sound4 = new Howl({
+            src: ['snd/growl.wav']
+        });
+
+
+        function callVid(vfile, divid) {
+            $(divid).get(0).pause();
+            $(divid).attr('src', vfile);
+            $(divid).get(0).load();
+            //$('#'+videoID).attr('poster', newposter); //Change video poster
+            $(divid).get(0).play();
+        }
+
+        var socket = io.connect('//localhost:3000');
+        socket.on('data', function(data) {
+            console.log(data);
+            $('#incoming').text(data);
+            if (data == "1") {
+                callVid("vid/v1.mp4", '#video1')
+                callVid("vid/v2.mp4", '#video2')
+                callVid("vid/v3.mp4", '#video3')
+                callVid("vid/v4.mp4", '#video4')
+                callVid("vid/v5.mp4", '#video5')
+                sound1.play();
+            } else if (data == "2") {
+                callVid("vid/v2.mp4", '#video1')
+                callVid("vid/v3.mp4", '#video2')
+                callVid("vid/v4.mp4", '#video3')
+                callVid("vid/v5.mp4", '#video4')
+                callVid("vid/v1.mp4", '#video5')
+                sound2.play();
+            } else if (data == "3") {
+                callVid("vid/v4.mp4", '#video3')
+                sound3.play();
+            } else if (data == "4") {
+                callVid("vid/v3.mp4", '#video4')
+                sound4.play();
+            } else if (data == "5") {
+                callVid("vid/v5.mp4", '#video5')
+                sound2.play();
+            } else if (data == "6") {
+                callVid("vid/v1.mp4", '#video1')
+                sound1.play();
+            }
+        });
+        socket.on('error', function() {
+            console.error(arguments)
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <video autoplay loop id="video1" width="480" height="360" src="vid/v1.mp4" type="video/mp4"></video>
+    <video autoplay loop id="video2" width="480" height="360" src="vid/v1.mp4" type="video/mp4"></video>
+    <video autoplay loop id="video3" width="480" height="360" src="vid/v1.mp4" type="video/mp4"></video>
+    <video autoplay loop id="video4" width="480" height="360" src="vid/v1.mp4" type="video/mp4"></video>
+    <video autoplay loop id="video5" width="480" height="360" src="vid/v1.mp4" type="video/mp4"></video>
+    <!-- <video autoplay id="video1"><source src="vid/v1.mp4" type="video/mp4" /></video>
+    <video autoplay id="video2"><source src="vid/v1.mp4" type="video/mp4" /></video>
+    <video autoplay id="video3"><source src="vid/v1.mp4" type="video/mp4" /></video>
+    <video autoplay id="video4"><source src="vid/v1.mp4" type="video/mp4" /></video>
+    <video autoplay id="video5"><source src="vid/v1.mp4" type="video/mp4" /></video>
+    <video autoplay id="video6"><source src="vid/v1.mp4" type="video/mp4" /></video> -->
+    <script src="js/maptastic.min.js"></script>
+    <script>
+        Maptastic("video1", "video2", "video3", "video4", "video5");
+        document.addEventListener("DOMContentLoaded", function() {
+            callVid("vid/v1.mp4", '#video1')
+            callVid("vid/v2.mp4", '#video2')
+            callVid("vid/v3.mp4", '#video3')
+            callVid("vid/v4.mp4", '#video4')
+            callVid("vid/v5.mp4", '#video5')
+        });
+    </script>
+</body>
+
+</html>

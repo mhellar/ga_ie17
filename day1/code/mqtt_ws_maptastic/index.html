@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="js/howler.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        var sound1 = new Howl({
+            src: ['snd/abs.wav']
+        });
+        var sound2 = new Howl({
+            src: ['snd/bit.wav']
+        });
+        var sound3 = new Howl({
+            src: ['snd/fx.wav']
+        });
+        var sound4 = new Howl({
+            src: ['snd/growl.wav']
+        });
+        var socket = io.connect('//localhost:3000');
+        socket.on('data', function(data) {
+            console.log(data);
+            $('#incoming').text(data);
+
+            if (data == "a") {
+                $("#image1").attr("src", "img/1.gif");
+                $("#image2").attr("src", "img/1.gif");
+                $("#image3").attr("src", "img/1.gif");
+                $("#image4").attr("src", "img/1.gif");
+                $("#image5").attr("src", "img/1.gif");
+                $("#image6").attr("src", "img/1.gif");
+                sound1.play();
+            } else if (data == "b") {
+                $("#image1").attr("src", "img/2.gif");
+                $("#image2").attr("src", "img/2.gif");
+                $("#image3").attr("src", "img/2.gif");
+                $("#image4").attr("src", "img/2.gif");
+                $("#image5").attr("src", "img/2.gif");
+                $("#image6").attr("src", "img/2.gif");
+                sound2.play();
+            } else if (data == "c") {
+                $("#image1").attr("src", "img/3.gif");
+                $("#image2").attr("src", "img/3.gif");
+                $("#image3").attr("src", "img/3.gif");
+                $("#image4").attr("src", "img/3.gif");
+                $("#image5").attr("src", "img/3.gif");
+                $("#image6").attr("src", "img/3.gif");
+                sound3.play();
+            } else if (data == "d") {
+                $("#image1").attr("src", "img/4.gif");
+                $("#image2").attr("src", "img/5.gif");
+                $("#image3").attr("src", "img/6.gif");
+                $("#image4").attr("src", "img/7.gif");
+                $("#image5").attr("src", "img/8.gif");
+                $("#image6").attr("src", "img/4.gif");
+                sound4.play();
+            } else if (data == "e") {
+                $("#image1").attr("src", "img/1.gif");
+                $("#image2").attr("src", "img/4.gif");
+                $("#image3").attr("src", "img/3.gif");
+                $("#image4").attr("src", "img/8.gif");
+                $("#image5").attr("src", "img/2.gif");
+                $("#image6").attr("src", "img/3.gif");
+                sound2.play();
+            } else if (data == "f") {
+                $("#image1").attr("src", "img/7.gif");
+                $("#image2").attr("src", "img/8.gif");
+                $("#image3").attr("src", "img/6.gif");
+                $("#image4").attr("src", "img/4.gif");
+                $("#image5").attr("src", "img/1.gif");
+                $("#image6").attr("src", "img/4.gif");
+                sound1.play();
+            }
+        });
+        socket.on('error', function() {
+            console.error(arguments)
+        });
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <img width="400" height="400" src="img/1.gif" id="image1" style="background:#404040"></div>
+    <img width="400" height="400" src="img/2.gif" id="image2" style="background:#404040"></div>
+    <img width="400" height="400" src="img/3.gif" id="image3" style="background:#404040"></div>
+    <img width="400" height="400" src="img/4.gif" id="image4" style="background:#404040"></div>
+    <img width="400" height="400" src="img/8.gif" id="image5" style="background:#404040"></div>
+    <img width="400" height="400" src="img/7.gif" id="image6" style="background:#404040"></div>
+    <script src="js/maptastic.min.js"></script>
+    <script>
+        Maptastic("image1", "image2", "image3", "image4", "image5", "image6");
+    </script>
+</body>
+
+</html>
